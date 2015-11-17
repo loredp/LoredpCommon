@@ -19,7 +19,7 @@ namespace LCommon.Components
         /// Set the object container.
         /// </summary>
         /// <param name="container"></param>
-        public static void SerContainer(IObjectContainer container)
+        public static void SetContainer(IObjectContainer container)
         {
             Current = container;
         }
@@ -33,6 +33,7 @@ namespace LCommon.Components
         {
             Current.RegisterType(implementationType, serviceName, life);
         }
+
         /// <summary>Register a implementer type as a service implementation.
         /// </summary>
         /// <param name="serviceType">The implementation type.</param>
@@ -43,6 +44,7 @@ namespace LCommon.Components
         {
             Current.RegisterType(serviceType, implementationType, serviceName, life);
         }
+
         /// <summary>Register a implementer type as a service implementation.
         /// </summary>
         /// <typeparam name="TService">The service type.</typeparam>
@@ -55,7 +57,9 @@ namespace LCommon.Components
         {
             Current.Register<TService, TImplementer>(serviceName, life);
         }
-        /// <summary>Register a implementer type instance as a service implementation.
+
+        /// <summary>
+        /// Register a implementer type instance as a service implementation.
         /// </summary>
         /// <typeparam name="TService">The service type.</typeparam>
         /// <typeparam name="TImplementer">The implementer type.</typeparam>
@@ -67,7 +71,9 @@ namespace LCommon.Components
         {
             Current.RegisterInstance<TService, TImplementer>(instance, serviceName);
         }
-        /// <summary>Resolve a service.
+
+        /// <summary>
+        /// Resolve a service.
         /// </summary>
         /// <typeparam name="TService">The service type.</typeparam>
         /// <returns>The component instance that provides the service.</returns>
@@ -75,7 +81,9 @@ namespace LCommon.Components
         {
             return Current.Resolve<TService>();
         }
-        /// <summary>Resolve a service.
+
+        /// <summary>
+        /// Resolve a service.
         /// </summary>
         /// <param name="serviceType">The service type.</param>
         /// <returns>The component instance that provides the service.</returns>
@@ -83,7 +91,9 @@ namespace LCommon.Components
         {
             return Current.Resolve(serviceType);
         }
-        /// <summary>Resolve a service.
+
+        /// <summary>
+        /// Resolve a service.
         /// </summary>
         /// <typeparam name="TService">The service type.</typeparam>
         /// <param name="serviceName">The service name.</param>
@@ -92,7 +102,9 @@ namespace LCommon.Components
         {
             return Current.ResolveNamed<TService>(serviceName);
         }
-        /// <summary>Resolve a service.
+
+        /// <summary>
+        /// Resolve a service.
         /// </summary>
         /// <param name="serviceName">The service name.</param>
         /// <param name="serviceType">The service type.</param>

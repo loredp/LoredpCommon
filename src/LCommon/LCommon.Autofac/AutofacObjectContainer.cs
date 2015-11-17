@@ -8,7 +8,7 @@ using LCommon.Components;
 namespace LCommon.Autofac
 {
     /// <summary>
-    /// Autofac implementationi of IObjectContainer.
+    /// Autofac implementation of IObjectContainer.
     /// </summary>
     public class AutofacObjectContainer : IObjectContainer
     {
@@ -85,38 +85,88 @@ namespace LCommon.Autofac
             builder.Update(_container);
         }
 
+        /// <summary>
+        /// Register a implementer type as a service implementation.
+        /// </summary>
+        /// <typeparam name="TService">The service type.</typeparam>
+        /// <typeparam name="TImplementer">The implementer type.</typeparam>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="life">The life cycle of the implementer type.</param>
         public void Register<TService, TImplementer>(string serviceName = null, LifeStyle life = LifeStyle.Singleton)
             where TService : class
             where TImplementer : class, TService
         {
-            throw new NotImplementedException();
+            var builder = new ContainerBuilder();
+
+            var registrationBuilder = builder.RegisterType<TImplementer>().As<TService>();
+            if (serviceName != null)
+                registrationBuilder.Named<TService>(serviceName);
+            if (life == LifeStyle.Singleton)
+                registrationBuilder.SingleInstance();
+
+            builder.Update(_container);
         }
 
+        /// <summary>
+        /// Register a implementer type instance as a service implementation.
+        /// </summary>
+        /// <typeparam name="TService">The service type.</typeparam>
+        /// <typeparam name="TImplementer">The implementer type.</typeparam>
+        /// <param name="instance">The implementer type instance.</param>
+        /// <param name="serviceName">The service name.</param>
         public void RegisterInstance<TService, TImplementer>(TImplementer instance, string serviceName = null)
             where TService : class
             where TImplementer : class, TService
         {
-            throw new NotImplementedException();
+            var builder = new ContainerBuilder();
+
+            var registrationBuilder = builder.RegisterType<TImplementer>().As<TService>().SingleInstance();
+            if (serviceName != null)
+                registrationBuilder.Named<TService>(serviceName);
+
+            builder.Update(_container);
         }
 
+        /// <summary>
+        /// Resolve a service.
+        /// </summary>
+        /// <typeparam name="TService"></typeparam>
+        /// <returns></returns>
         public TService Resolve<TService>() where TService : class
         {
-            throw new NotImplementedException();
+            return _container.Resolve<TService>();
         }
 
+        /// <summary>
+        /// Resolve a service.
+        /// </summary>
+        /// <param name="serviceType">The service type.</param>
+        /// <returns>The component instance that provides the service.</returns>
         public object Resolve(Type serviceType)
         {
-            throw new NotImplementedException();
+            return _container.Resolve(serviceType);
         }
 
+        /// <summary>
+        /// Resolve a service.
+        /// </summary>
+        /// <typeparam name="TService">The service type.</typeparam>
+        /// <param name="serviceName">The service name.</param>
+        /// <returns>The component instance that provides the service.</returns>
         public TService ResolveNamed<TService>(string serviceName) where TService : class
         {
-            throw new NotImplementedException();
+            return _container.ResolveNamed<TService>(serviceName);
         }
 
+        /// <summary>
+        /// Resolve a service.
+        /// </summary>
+        /// <param name="serviceName">The service name.</param>
+        /// <param name="serviceType">The service type.</param>
+        /// <returns>The component instance that provides the service.</returns>
         public object ResolveNamed(string serviceName, Type serviceType)
         {
-            throw new NotImplementedException();
+            return _container.ResolveNamed(serviceName, serviceType);
         }
 
         #endregion

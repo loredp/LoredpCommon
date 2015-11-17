@@ -42,6 +42,13 @@
     <Compile Include="Components\ComponentAttribute.cs" />
     <Compile Include="Components\IObjectContainer.cs" />
     <Compile Include="Components\ObjectContainer.cs" />
+    <Compile Include="Configurations\Configuration.cs" />
+    <Compile Include="IO\AsyncTaskResult.cs" />
+    <Compile Include="IO\IOException.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\ILoggerFactory.cs" />
+    <Compile Include="Logging\LLogger.cs" />
+    <Compile Include="Logging\LLoggerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

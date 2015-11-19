@@ -48,7 +48,7 @@ namespace LCommon.IO
             {
                 action(actionName, getContext, retryTimes);
             }
-            catch(IOException ex)
+            catch (IOException ex)
             {
                 var errorMessage = string.Format("IOException raised when executing action '{0}', currentRetryTimes:{1}, maxRetryTimes:{2}, contextInfo:{3}", actionName, retryTimes, maxRetryTimes, getContext());
 
@@ -67,6 +67,13 @@ namespace LCommon.IO
 
                 retryTimes++;
                 TryIOActionRecursivelyInternal(actionName, getContext, action, retryTimes, maxRetryTimes);
+            }
+            catch (Exception ex)
+            {
+                var errorMessage = string.Format("Unknown exception raised when excuting action '{0}',currentRetryTimes:{1},maxRetryTimes:{2},contextInfo:{3}", actionName, retryTimes, maxRetryTimes, getContext());
+
+                _logger.Error(errorMessage, ex);
+                throw;
             }
         }
 

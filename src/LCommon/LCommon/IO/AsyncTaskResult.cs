@@ -32,6 +32,51 @@ namespace LCommon.IO
     }
 
     /// <summary>
+    /// Represents a generic async task result.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class AsyncTaskResult<T> : AsyncTaskResult
+    {
+        public T Data { get; private set; }
+
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        public AsyncTaskResult(AsyncTaskStatus status)
+            : this(status, null, default(T))
+        {
+        }
+
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        public AsyncTaskResult(AsyncTaskStatus status, T data)
+            : this(status, null, data)
+        {
+        }
+
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        public AsyncTaskResult(AsyncTaskStatus status, string errorMessage)
+            : this(status, errorMessage, default(T))
+        {
+        }
+
+        /// <summary>
+        /// Parameterized constructor.
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="errorMessage"></param>
+        /// <param name="data"></param>
+        public AsyncTaskResult(AsyncTaskStatus status, string errorMessage, T data)
+            : base(status, errorMessage)
+        {
+            Data = data;
+        }
+    }
+
+    /// <summary>
     /// Represents an async task result status enum.
     /// </summary>
     public enum AsyncTaskStatus

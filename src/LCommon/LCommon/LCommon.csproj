@@ -56,6 +56,7 @@
     <Compile Include="Serializing\DefaultJsonSerializer.cs" />
     <Compile Include="Serializing\IBinarySerializer.cs" />
     <Compile Include="Serializing\IJsonSerializer.cs" />
+    <Compile Include="Utilities\DelegateFactory.cs" />
     <Compile Include="Utilities\Ensure.cs" />
   </ItemGroup>
   <ItemGroup />

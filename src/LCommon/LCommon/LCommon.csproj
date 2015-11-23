@@ -43,6 +43,10 @@
     <Compile Include="Components\IObjectContainer.cs" />
     <Compile Include="Components\ObjectContainer.cs" />
     <Compile Include="Configurations\Configuration.cs" />
+    <Compile Include="Extensions\ConcurrentDictionaryExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\ReaderWriterLockSlimExtensions.cs" />
+    <Compile Include="Extensions\TaskExtensions.cs" />
     <Compile Include="Extensions\TaskFactoryExtensions.cs" />
     <Compile Include="IO\AsyncTaskResult.cs" />
     <Compile Include="IO\IOException.cs" />

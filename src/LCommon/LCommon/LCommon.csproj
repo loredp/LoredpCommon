@@ -69,11 +69,21 @@
     <Compile Include="Remoting\RemotingUtil.cs" />
     <Compile Include="Remoting\ResponseFuture.cs" />
     <Compile Include="Remoting\SocketRemotingClient.cs" />
+    <Compile Include="Scheduling\IScheduleService.cs" />
     <Compile Include="Serializing\DefaultBinarySerializer.cs" />
     <Compile Include="Serializing\DefaultJsonSerializer.cs" />
     <Compile Include="Serializing\IBinarySerializer.cs" />
     <Compile Include="Serializing\IJsonSerializer.cs" />
+    <Compile Include="Socketing\BufferManagement\BufferItemCreator.cs" />
+    <Compile Include="Socketing\BufferManagement\BufferPool.cs" />
+    <Compile Include="Socketing\BufferManagement\IBufferPool.cs" />
+    <Compile Include="Socketing\BufferManagement\IntelliPool.cs" />
+    <Compile Include="Socketing\BufferManagement\IPool.cs" />
+    <Compile Include="Socketing\BufferManagement\IPoolItemCreator.cs" />
+    <Compile Include="Socketing\IConnectionEventListener.cs" />
     <Compile Include="Socketing\ITcpConnection.cs" />
+    <Compile Include="Socketing\SocketSetting.cs" />
+    <Compile Include="Socketing\TcpConnection.cs" />
     <Compile Include="Utilities\DelegateFactory.cs" />
     <Compile Include="Utilities\Ensure.cs" />
   </ItemGroup>

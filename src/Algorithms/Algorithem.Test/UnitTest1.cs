@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Algorithms.Greedy;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algorithem.Test

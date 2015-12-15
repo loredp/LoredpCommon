@@ -8,6 +8,9 @@ namespace Algorithms.Greedy
 {
     public class GreedyBagAlgorithm
     {
+        /// <summary>
+        /// 背包问题：有一个背包，背包容量是M=150。有7个物品，物品可以分割成任意大小。要求尽可能让装入背包中的物品总价值最大，但不能超过总容量。物品 A B C D E F G重量 35 30 60 50 40 10 25价值 10 40 30 50 35 40 30分析如下目标函数： ∑pi最大,约束条件是装入的物品总重量不超过背包容量：∑wi<=M( M=150)。
+        /// </summary>
         public void GetGreedyBagOptimal()
         {
             float[] Weight = { 35, 30, 60, 50, 40, 15, 20 };

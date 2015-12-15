@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="Greedy\DataModel.cs" />
     <Compile Include="Greedy\GreedyBagAlgorithm.cs" />
+    <Compile Include="Greedy\GreedyChooseAlgorithm.cs" />
+    <Compile Include="Greedy\LineConverAlgorithm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

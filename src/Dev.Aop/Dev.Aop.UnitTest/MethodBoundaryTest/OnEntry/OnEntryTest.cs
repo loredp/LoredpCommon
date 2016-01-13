@@ -18,6 +18,24 @@ namespace Dev.Aop.UnitTest.MethodBoundaryTest.OnEntry
             return argument;
         }
 
+        [ChangeArgumentAspect]
+        public string ResturnStringArgumentPassedAsRef(ref string argument)
+        {
+            return argument;
+        }
+
+        [ChangeObjectArgumentAspect]
+        public object ResturnObjectArgument(object argument)
+        {
+            return argument;
+        }
+
+        [ChangeArgumentAspect]
+        public void MethodWithRefArgs(ref int value)
+        {
+            OriginalMethodCalled = true;
+        }
+
         public DynamicMetaObject GetMetaObject(Expression parameter)
         {
             return new AspectWeaver(parameter, this);
